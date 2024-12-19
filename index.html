@@ -1,0 +1,193 @@
+<!DOCTYPE html>                                    <!-- 声明文档类型为HTML5 -->
+<html lang="zh">                                   <!-- HTML根元素，设置语言为中文 -->
+<head>                                            <!-- 文档头部区域 -->
+    <meta charset="UTF-8">                        <!-- 设置字符编码为UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- 设置视口，用于响应式布局 -->
+    <title>自由组合定律模拟实验</title>           <!-- 设置页面标题 -->
+    <link rel="stylesheet" href="styles.css">     <!-- 链接外部CSS样式表 -->
+</head>
+<body>                                            <!-- 文档主体区域 -->
+    <div class="container">
+        <!-- 第一列：左侧实验区 -->
+        <div class="experiment-area">
+            <h2>自由组合模拟实验（Made by吴正准）</h2>
+            <div class="experiment-container">
+                <!-- 第一行 - 子一代 -->
+                <div class="row f1-row">          <!-- 子一代行容器 -->
+                    <span class="label">子一代</span>  <!-- 子一代标签 -->
+                    <span class="gene">YyRr</span>     <!-- 第一个基因型 -->
+                    <span class="multiply">×</span>    <!-- 乘号符号 -->
+                    <span class="gene">YyRr</span>     <!-- 第二个基因型 -->
+                </div>
+                
+                <!-- 第二行 - 基因分离 -->
+                <div class="row gene-separation">      <!-- 基因分离行容器 -->
+                    <span class="label">基因分离<br>自由组合</span>  <!-- 基因分离标签 -->
+                    <div class="gene-boxes-container">  <!-- 基因框容器 -->
+                        <div class="gene-box-pair">     <!-- 左侧基因框对 -->
+                            <div class="gene-box" id="female-y-box"></div>  <!-- 雌性Y基因框 -->
+                            <div class="gene-box" id="female-r-box"></div>  <!-- 雌性R基因框 -->
+                        </div>
+                        <div class="gene-box-pair">     <!-- 右侧基因框对 -->
+                            <div class="gene-box" id="male-y-box"></div>    <!-- 雄性Y基因框 -->
+                            <div class="gene-box" id="male-r-box"></div>    <!-- 雄性R基因框 -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第三行 - 配子 -->
+                <div class="row gamete-row">          <!-- 配子行容器 -->
+                    <span class="label">配子</span>    <!-- 配子标签 -->
+                    <div class="gamete-boxes">         <!-- 配子框容器 -->
+                        <div class="gamete-box" id="female-gamete"></div>  <!-- 雌配子框 -->
+                        <div class="gamete-box" id="male-gamete"></div>    <!-- 雄配子框 -->
+                    </div>
+                </div>
+
+                <!-- 第四行 - 子二代 -->
+                <div class="row f2-row">              <!-- 子二代行容器 -->
+                    <span class="label">子二代</span>  <!-- 子二代标签 -->
+                    <div class="f2-box" id="f2-result"></div>  <!-- 子二代结果框 -->
+                </div>
+
+                <!-- 第五行 - 表型 -->
+                <div class="row phenotype-row">       <!-- 表型行容器 -->
+                    <span class="label">表型</span>    <!-- 表型标签 -->
+                    <div class="phenotype-box" id="phenotype-result"></div>  <!-- 表型结果框 -->
+                </div>
+            </div>
+        </div>
+
+        <!-- 第二列：基因型统计区 -->
+        <div class="genotype-stats-column">
+            <div class="genotype-stats">
+                <h3>基因型的统计</h3>
+                <div id="genotype-stats-content">
+                    <!-- 统计表头 -->
+                    <div class="stat-row header-row">
+                        <span class="header">基因型</span>
+                        <span class="header">统计值</span>
+                        <span class="header">比值</span>
+                    </div>
+                    <!-- 基因型统计行 -->
+                    <div class="stat-row">
+                        <span class="genotype">YYRR:</span>
+                        <span class="count">0</span>
+                        <span class="ratio">0.00</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="genotype">YYRr:</span>
+                        <span class="count">0</span>
+                        <span class="ratio">0.00</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="genotype">YYrr:</span>
+                        <span class="count">0</span>
+                        <span class="ratio">0.00</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="genotype">YyRR:</span>
+                        <span class="count">0</span>
+                        <span class="ratio">0.00</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="genotype">YyRr:</span>
+                        <span class="count">0</span>
+                        <span class="ratio">0.00</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="genotype">Yyrr:</span>
+                        <span class="count">0</span>
+                        <span class="ratio">0.00</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="genotype">yyRR:</span>
+                        <span class="count">0</span>
+                        <span class="ratio">0.00</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="genotype">yyRr:</span>
+                        <span class="count">0</span>
+                        <span class="ratio">0.00</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="genotype">yyrr:</span>
+                        <span class="count">0</span>
+                        <span class="ratio">0.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第三列：表型统计区和控制按钮 -->
+        <div class="phenotype-controls-column">
+            <!-- 表型统计区 -->
+            <div class="phenotype-stats">
+                <h3>表型的统计</h3>
+                <div id="phenotype-stats-content">
+                    <!-- 统计表头 -->
+                    <div class="stat-row header-row">
+                        <span class="header">表型</span>
+                        <span class="header">统计值</span>
+                        <span class="header">比值</span>
+                    </div>
+                    <!-- 表型统计行 -->
+                    <div class="stat-row">
+                        <span class="phenotype">黄圆:</span>
+                        <span class="count">0</span>
+                        <span class="ratio">0.00</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="phenotype">黄皱:</span>
+                        <span class="count">0</span>
+                        <span class="ratio">0.00</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="phenotype">绿圆:</span>
+                        <span class="count">0</span>
+                        <span class="ratio">0.00</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="phenotype">绿皱:</span>
+                        <span class="count">0</span>
+                        <span class="ratio">0.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 控制按钮区 -->
+            <div class="control-panel">
+                <h3>实验控制</h3>
+                <div class="simulation-controls">
+                    <!-- 第一行按钮 -->
+                    <div class="control-row">                     <!-- 第一行按钮容器 -->
+                        <button id="female-gamete-btn">形成雌配子</button>  <!-- 形成雌配子按钮 -->
+                        <button id="male-gamete-btn">形成雄配子</button>    <!-- 形成雄配子按钮 -->
+                    </div>
+
+                    <!-- 第二行按钮 -->
+                    <div class="control-row">                     <!-- 第二行���钮容器 -->
+                        <button id="fertilization-btn">完成受精</button>    <!-- 完成受精按钮 -->
+                    </div>
+
+                    <!-- 第三行按钮 -->
+                    <div class="control-row">                     <!-- 第三行按钮容器 -->
+                        <button id="single-sim">单次模拟</button>          <!-- 单次模拟按钮 -->
+                        <button id="sim-10">模拟10次</button>             <!-- 模拟10次按钮 -->
+                        <button id="sim-100">模拟100次</button>           <!-- 模拟100次按钮 -->
+                        <button id="sim-1000">模拟1000次</button>         <!-- 模拟1000次按钮 -->
+                    </div>
+
+                    <!-- 第四行按钮 -->
+                    <div class="control-row">                     <!-- 第四行按钮容器 -->
+                        <button id="stats-btn">统计结果</button>          <!-- 统计结果按钮 -->
+                        <button id="clear-btn">清空</button>              <!-- 清空按钮 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>                <!-- 引入JavaScript文件 -->
+</body>
+</html> 
