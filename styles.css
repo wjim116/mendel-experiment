@@ -94,7 +94,7 @@
 /* 表头行样式 */
 .header-row {
     background-color: #f8f9fa;    /* 浅灰色背景 */
-    font-weight: bold;            /* 粗体文字 */
+    font-weight: bold;            /* ���体文字 */
     border-bottom: 2px solid #dee2e6;  /* 底部边框 */
     margin-bottom: 8px;           /* 底部外边距8px */
 }
@@ -246,12 +246,12 @@
 
 /* 基因框容器样式 */
 .boxes-container {
-    position: relative;          /* 相对定位，作为���元素的定位参考 */
+    position: relative;          /* 相对定位，作为元素的定位参考 */
     width: 400px;                /* 固定宽度 */
     margin: 0 auto;              /* 水平居中 */
 }
 
-/* 基因框组样式 */
+/* 基因框组样��� */
 .gene-box-group {
     display: flex;               /* 使用弹性布局 */
     width: 80px;                 /* 固定宽度 */
@@ -693,4 +693,38 @@ button:hover {
     border-top-left-radius: 0;     /* 左上角不圆角 */
     border-bottom-left-radius: 0;  /* 左下角不圆角 */
     border-left: none;             /* 移除左边框，使相邻框共用边框 */
-} 
+}
+
+/* 在文件末尾添加浮动按钮样式 */
+.floating-button {
+    position: fixed;           /* 固定定位 */
+    bottom: 20px;             /* 距离底部20px */
+    right: 20px;              /* 距离右侧20px */
+    background-color: #4CAF50;/* 绿色背景 */
+    color: white;             /* 白色文字 */
+    padding: 15px 25px;       /* 内边距 */
+    border-radius: 25px;      /* 圆角 */
+    text-decoration: none;    /* 移除下划线 */
+    font-size: 16px;          /* 字体大小 */
+    font-family: "Microsoft YaHei", "微软雅黑", sans-serif;  /* 中文字体 */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);  /* 阴影效果 */
+    z-index: 1000;            /* 确保按钮显示在最上层 */
+    transition: all 0.3s ease;/* 添加过渡效果 */
+}
+
+.floating-button:hover {
+    background-color: #45a049;/* 悬停时的背景色 */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);  /* 悬停时的阴影效果 */
+    transform: translateY(-2px);  /* 悬停时轻微上浮 */
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .floating-button {
+        padding: 12px 20px;    /* 较小的内边距 */
+        font-size: 14px;       /* 较小的字体 */
+        bottom: 15px;          /* 距离底部15px */
+        right: 15px;           /* 距离右侧15px */
+    }
+}
+ 
